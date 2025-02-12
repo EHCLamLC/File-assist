@@ -1,0 +1,16 @@
+- Lever 00:
+    vào terminal, gõ ssh bandit0@bandit.labs.overthewire.org -p 2220
+      pass : bandit0
+- Lever 0 -> 1 :
+    nhập ls -alps 
+    nhập cat readme
+    có pass tìm được là : ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+    nhập exit
+    đăng nhập lại: ssh bandit1@bandit.labs.otherthewire.org -p 2220
+    nhập pass như trên
+- Lever 1 -> 2 :
+    gõ ls -alps
+    gõ cat ./-
+    có pass : 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+    exit 
+
