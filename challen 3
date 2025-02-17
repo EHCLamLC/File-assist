@@ -62,7 +62,238 @@
       ls -apls 
       strings data.txt | grep "milionth"
       copy 
+      ssh bandit8@bandit.labs.overthewire.org -p 2220
+      paste pass trên vào
+-Lever 8 -> 9:
+      ls -apls
+      cat data.txt
+      sort data.txt | uniq -c
+    ( cần sắp xếp lại các mật khẩu [sort] lại file data, sau đó tìm fie khác biệt với [uniq] và tùy
+chọn -c [đếm số dòng xuất hiện] )
+      tìm số dòng chỉ xuất hiện 1 lần 
+      copy pass 
+      ssh bandit9@bandit.labs.overthewire.org -p 2220
+      paste pass 
+-Lever 9 -> 10
+      string data.txt | grep "=" (tìm kiếm dấu bằng trong tất cả file data có kí tự "=")
+      tìm được pass 
+      copy
+      exit
+      ssh bandit10@bandit.labs.overthewire.ỏg -p 2220
+      paste pass 
+-Lever 10 -> 11 
+      cat data.txt (pass sai, vì bị mã hóa)
+      base64 -d data.txt ( mã hóa thành chuỗi base64 / -d : bỏ qua những file bị trùng)
+      copy password 
+      exit
+      ssh bandit11@bandit.labs.overthewire.org -p 2220
+      paste pass vào
+-lever 11 -> 12 
+      sử dụng trang wed cyberchef để giải nghĩa dòng trên 
+      exit
+      ssh bandit12@bandit.labs.overthewire.org -p 2220
+      paste mk vào
+-Lever 12 -> 13
+      cat data.txt
+      mkdir /tmp/alexis
+      cp data.txt /tmp/
+      sd /tmp/alexis
+      ls (hiện data.txt)
+      xxd -r data.txt > data
+      ls (data data.txt)
+      file data (kiểm tra thông tin tệp)
+      mv data file.gz
+      gzip -d file.gz
+      ls (data.txt file)
+      file file (kiểm tra thông tin tệp)
+      mv file file.bz2
+      ls (data.txt file)
+      file file
+      mv file file.gz
+      gzip -d file.gz
+      ls (data.txt file)
+      file file (file: POSIX tả ảchive (GNU))
+      mv file file.tar
+      ls (data5.bin data.txt file.tar) 
+      file data5.bin (data5.bin: POSIX tar archive (GNU)
+      rm file.tar
+      rm data (data5.bin data.txt)
+      rm data.txt
+      ls (data5.bin)
+      file file 
+      file data5.bin.data.tar
+      tar xf data.tar
+      ls (data6.bin data.tar)
+      file data6.bin (kiểm tra file)
+      mv data6.bin data.bz2
+      bzip2 -d data.bz2
+      ls (data data.tar)
+      file file 
+      file data
+      mv data data.tar
+      ls (data.tar)
+      tar xf data8.bin
+      mv data8.bin
+      mv data8.bin data.gz
+      gzip -d data.gz
+      ls (data data.tar)
+      file data (data : ASCII text)
+      cat data
+      ra pass 
+      exit
+      ssh bandit13@bandit.labs.overthewire.org -p 2220
+      paste pass
+- Lever 13 -> 14 :
+      ls (ssh.private)
+      ssh -i sshkey.private bandit14@
+      (login thành công)
+- Lever 14 -> 15:
+      cat /etc/bandit_pass/bandit14(ra pass để copy)
+      nc localhost 30000 
+      paste vào (hiện correct và thêm 1 dòng pass nữa)
+      exit
+      ssh bandit15@bandit.labs.overthewire.org -p 
+      paste pass 
+- Lever 15 -> 16 :
+      cat /etc/bandit_pass/bandit15 (hiện ra pass, copy nó)
+      ncat --ssl localhost 30001
+      paste vào
+      (tạo ra một pass nữa, copy nó) 
+      exit 
+      ssh bandit16@bandit.labs.overthewire.org -p 2220
+      paste vào
+- Lever 16 -> 17:
+      cat /etc/bandit_pass/bandit16
+      (ra pass 1)
+      nmap localhost -p 31000-32000 
+      paste pass 1 vào
+      nc localhost 31790
+      paste pass 1 
+      ncat --ssl localhost 31790
+      paste pass 1
+      (ra pass 2)
+      exit
+      vim key
+      chmod 400 key
+      ssh -i key bandit17@bandit.labs.overthewire.org -p 2220
+- Lever 17 -> 18 :
+      diff password.old passwords.new
+      ( ra 2 dòng gì gì đó, copy dòng )
+       exit 
+       ssh bandit18@bandit.labs.overthewire.org -p 2220
+       paste pass vào
+- Lever 18 -> 19:
+        $ ls (readme)
+        $ cat readme ( ra pass )
+        exit
+        ssh bandit19@bandit.labs.overthewire.org -p 
+        paste pass vào
+- Lever 19 -> 20:
+        ls (bandit20-do)
+        ./bandit20-do id
+        ./bandit20-do ls (hiện ra bandit20-do)
+        ./bandit20-do cat /etc/bandit_pass/bandit20 (ra pass của nó)
+        exit
+        ssh bandit20@bandit.labs.overthewire.org -p 2220
+          paste
+         ls (suconnect)
+         ./suconnect
+         cat /etc/ban_pass/bandit20
+         (ra pass)
+         nmap -F localhost 
+          exit
+        ssh bandit21@bandit.labs.overthewire.org -p 
+          paste pass 
+    -Lever 21 -> 22:
+           cat /etc/cron.d/
+           (cat: /etc/cron.d/ : Í a directory)
+           vim /etc/crom.d/
+            ls /etc/cron.d/
+           cat /etc/cron.d/cronjob_bandit22
+            copy /urs/bin/cronjob_bandit22.sh và 
+           cat (paste) --> copy cái link tiếp theo (/tmp/t706...)
+            cat (paste cái trên)
+             (ra cái pass và copy)
+            exit
+             ssh bandit21@bandit.labs.overthewire.org -p 2220
+             paste cái pass trên vào
+    -Lever 22 -> 23:
+            crontab (bị denied)
+             cat /etc/cron.d/cronjob_bandit23
+             cat link (/usr/bin/...)
+             $myname
+             myname=bandit23
+             $myname
+             md5sum
+             echo I am user $myname | md5sum | cut -d ' ' -f -f 1
+             (ra cái mã gì gì đó)
+             cat /tmp/(mã gì đó ở trên)
+             ra cái pass 
+             exit 
+             ssh bandit23@bandit.labs.overthewire.org -p 2220
+             paste 
+- Lever 23 -> 24 
+        cat /etc/crond.d/cronjob_bandit23
+        cat /usr/bin/cronjob_bandit23.sh
+        cat /usr/bin/cronjob_bandit24.sh
+        cat /var/spool/
+        ls /var/spool/bandit24/
+        cat etc/cron.d/dronjob_
+        vim test.sh
+        ls
+        cd /tmp/alexis
+        ls (data data.tar)
+        rm data
+        cd ..
+        mkdir lamlc
+        cd lamlc
+        vim test.sh
+        ls (test.sh)
+        chmod 777 test.sh
+        touch pass
+        chmod 777 pass
+        ls (pass test.sh)
+        cp test.sh/ var/spool/bandit24/
+        ls -alps
+        cat pass
+        cat test.sh
+        cron
+        cat pass 
+        copy pass
+        exit
+         ssh bandit24@bandit.labs.overthewire.org -p 
+-Lever 24 -> 25:
+      touch test (bị denied)
+      mkdir /tmp/youtobe
+      cd /tmp/youtubr
+       vim nc local 
+      nc localhost 30002
+       cat /etc/bandit_pass/bandit24
        
+
+        
+       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+      
     
     
     
