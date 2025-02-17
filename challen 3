@@ -6,11 +6,64 @@
     nhập cat readme
     có pass tìm được là : ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
     nhập exit
-    đăng nhập lại: ssh bandit1@bandit.labs.otherthewire.org -p 2220
+    đăng nhập lại: ssh bandit1@bandit.labs.overthewire.org -p 2220
     nhập pass như trên
 - Lever 1 -> 2 :
     gõ ls -alps
-    gõ cat ./-
+    gõ cat ./- (tìm file - từ thư mục gốc (.)
     có pass : 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
     exit 
+    ssh bandit2@bandit.labs.overthewire.org -p 2220
+    copy pass trên 
+-Lever 2 -> 3 :
+    gõ ls -alps 
+    cat "spaces in this filename"
+    copy pass trên 
+    exit 
+    ssh bandit3@bandit.labs.overthewire.org -p 2220
+    paste pass trên vào
+- Lever 3 -> 4
+    ls -alps
+    cd inhere 
+    cat .hidden
+    copy pass 
+    exit
+    ssh bandit4@bandit.labs.overthewire.org -p 2220
+    paste pass trên vào
+- Lever 4 -> 5
+    ls -alps
+    cd inhere
+    ls 
+    find . -type f | xargs file
+    ( hiện ra ./-file07 ASCII text -> là file chứa mật khẩu có nội dụng dạng mã ASCII)
+    cat ./-file07
+    copy pass
+    ssh bandit5@bandit.labs.overthewire.org -p 2220
+    paste pass vào
+- Lever 5 -> 6
+    ls -apls
+    cd inhere
+    find . -type f -size 1033c ! -name "excutable"
+    (xuất hiện file ./maybehere07/.file2 )
+    cat .maybehere07/.file2 
+     copy pass 
+     exit 
+    ssh bandit6@bandit.labs.overthewire.org -p 2220
+    paste pass 
+-Lever 6 -> 7 :
+     ls -alps
+      find / -type f  -user bandit7 group bandit6 -size 33c
+( tìm file có dòng password)
+      cat (paste file trên vào)
+      copy pass 
+      ssh bandit7@bandit.labs.overthewire.org -p 2220
+      paste pass 
+    
+     
+    
+    
+    
+    
+    
+    
 
