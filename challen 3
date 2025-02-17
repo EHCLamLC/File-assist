@@ -58,8 +58,11 @@
       copy pass 
       ssh bandit7@bandit.labs.overthewire.org -p 2220
       paste pass 
-    
-     
+-Lever 7 -> 8:
+      ls -apls 
+      strings data.txt | grep "milionth"
+      copy 
+       
     
     
     
